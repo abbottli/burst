@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<body style="overflow: hidden;">
+  <div style="z-index: -1; position: absolute; top: 0; left: 0">
+    <canvas id="canvas"></canvas>
+  </div>
+  <input type = "button" value = "Start" onclick = "start();" />
+  <input type = "button" value = "Stop" onclick = "stop();" />
+  <input type = "button" value = "Options" onclick = "options();" />
+  <br></br>
+
+  <div id = "options" style = "display: none;">
+    Lines:
+    <input type = "checkbox" id = "grow" />
+    <br></br>
+
+    Mouse Mode:
+    <input type = "checkbox" id = "mouse" />
+    <br></br>
+
+    Number of Shapes:
+    <input type = "text" id = "numShapes" value = "10" size = "1" />
+    <br></br>  
+
+    Amplitude:
+    <input type = "text" id = "amp" value = "250" size = "1" />
+    <br></br>
+
+    Speed:
+    <input type = "text" id = "speedMin" value = ".2" size = "1" />
+    -
+    <input type = "text" id = "speedMax" value = "1" size = "1" />    
+    <br></br>
+
+    Spin:
+    <input type = "text" id = "spinMin" value = ".001" size = "1" />
+    -
+    <input type = "text" id = "spinMax" value = ".005" size = "1" /> 
+    <br></br>
+
+    Size:
+    <input type = "text" id = "sizeMin" value = ".5" size = "1" />
+    -
+    <input type = "text" id = "sizeMax" value = "2" size = "1" /> 
+    <br></br>
+
+    Scale:
+    <input type = "text" id = "scaleMin" value = "1" size = "1" />
+    -
+    <input type = "text" id = "scaleMax" value = "4" size = "1" /> 
+    <br></br>
+
+    Delay
+    <input type = "text" id = "delay" value = "1" size = "1" />
+  </div>
+  <script src = "burst.js"></script>
+</body>
+</html>
