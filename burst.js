@@ -1,19 +1,20 @@
 var g, canvas; // canvas stuff
 var visual, addmore; // intervals
 var pills; // shape storage
+var DRAWRATE = 16;
 var color = [ // pretty colors
-    '#69D2E7',
-    '#1B676B',
-    '#BEF202',
-    '#EBE54D',
-    '#00CDAC',
-    '#1693A5',
-    '#F9D423',
-    '#FF4E50',
-    '#E7204E',
-    '#0CCABA',
-    '#FF006F'
-    ];
+  '#69D2E7',
+  '#1B676B',
+  '#BEF202',
+  '#EBE54D',
+  '#00CDAC',
+  '#1693A5',
+  '#F9D423',
+  '#FF4E50',
+  '#E7204E',
+  '#0CCABA',
+  '#FF006F'
+];
 var AMP, SPEED, SPIN, SIZE, SCALE, GROW, NUM, DELAY; // init var for pills
 // AMP is amplitude of cos, determines how much pills move side to side, the spread
 // GROW is show as growing lines or just the pills
@@ -30,26 +31,26 @@ function start() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   g = canvas.getContext('2d');
-  g.setTransform(1, 0, 0, 1, 0,0);
+  g.setTransform(1, 0, 0, 1, 0, 0);
 
-  visual = setInterval(draw, 6);
-  
+  visual = window.setTimeout(draw, DRAWRATE);
+
   if (document.getElementById('mouse').checked) {
-    document.addEventListener('mousemove', mouseMove, false);               
+    document.addEventListener('mousemove', mouseMove, false);
     document.addEventListener('mousedown', mouseDown, false);
   } else {
     for (i = 0; i < NUM; i++) {
       pill = new Line(rand(0, canvas.width), canvas.height);
       pills.push(pill);
     }
-    addmore = setInterval(moreP, DELAY * 1000);
+    addmore = window.setTimeout(moreP, DELAY * 1000);
   }
 }
 
 function stop() {
-  clearInterval(visual);
-  clearInterval(addmore);
-  document.removeEventListener('mousemove', mouseMove, false);               
+  window.clearTimeout(visual);
+  window.clearTimeout(addmore);
+  document.removeEventListener('mousemove', mouseMove, false);
   document.removeEventListener('mousedown', mouseDown, false);
 }
 
@@ -98,15 +99,16 @@ function toNum(s, def) {
 }
 
 function moreP() {
-	var pill;
-	for (var i = 0; i < NUM; i++) {
+  var pill;
+  for (var i = 0; i < NUM; i++) {
     pill = new Line(rand(0, canvas.width), canvas.height);
     pills.push(pill);
   }
+  addmore = window.setTimeout(moreP, DELAY * 1000);
 }
 
 function rand(min, max) {
-	return Math.random() * (max - min) + min;
+  return Math.random() * (max - min) + min;
 }
 
 function Line(x, y) {
@@ -121,7 +123,7 @@ function Line(x, y) {
     this.spin *= -1;
   }
   this.rotation = rand(0, 2 * Math.PI);
-  
+
   this.move = function() {
     this.rotation += this.spin;
     this.y -= this.speed * this.scale;
@@ -133,7 +135,7 @@ function Line(x, y) {
     g.translate(this.x + Math.cos(this.rotation * this.speed) * AMP, this.y);
     g.rotate(this.rotation);
     g.scale(this.scale, this.scale);
-    g.moveTo(this.size , 0);
+    g.moveTo(this.size, 0);
     g.lineTo(this.size * -1, 0);
     g.lineWidth = "5";
     g.lineCap = 'round';
@@ -153,11 +155,12 @@ function draw() {
     clear();
   for (var i = 0; i < pills.length; i++) {
     p = pills[i];
-    if (p.y == 0) {
-      p.x = rand(0, canvas.width);
-      p.y =p.size * p.scale * s.scale;
+    if (p.y < 0) {
+      //pills.splice(i,1); // causes flickering
+    } else {
+      p.move();
+      p.draw();
     }
-    p.move();
-    p.draw();
   }
+  visual = window.setTimeout(draw, DRAWRATE);
 }
