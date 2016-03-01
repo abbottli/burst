@@ -7,15 +7,39 @@
   <input type = "button" value = "Start" onclick = "start();" />
   <input type = "button" value = "Stop" onclick = "stop();" />
   <input type = "button" value = "Options" onclick = "options();" />
+  <input type = "button" value = "Default" onclick = "defCond();" />
   <br></br>
 
   <div id = "options" style = "display: none;">
-    Lines:
+    Draw Path:
     <input type = "checkbox" id = "grow" />
     <br></br>
 
     Mouse Mode:
     <input type = "checkbox" id = "mouse" />
+    <br></br>
+
+    Bounce:
+    <input type = "checkbox" id = "bounce" />
+    <br></br>
+
+    Shape Mode:
+    <select id = "shape">
+      <option>Pill</option>
+      <option>Words</option>
+    </select>
+    <br></br>
+
+    <div id = "wordsOptions" style = "display: none;">
+      Text to display:<br></br>
+      <textarea id = "words"></textarea><br></br>
+    </div>
+
+    Direction:
+    <select id = "direction">
+      <option>Up</option>
+      <option>Down</option>
+    </select>
     <br></br>
 
     Number of Shapes:
@@ -27,19 +51,19 @@
     <br></br>
 
     Speed:
-    <input type = "text" id = "speedMin" value = ".2" size = "1" />
+    <input type = "text" id = "speedMin" value = "0.2" size = "1" />
     -
     <input type = "text" id = "speedMax" value = "1" size = "1" />    
     <br></br>
 
     Spin:
-    <input type = "text" id = "spinMin" value = ".001" size = "1" />
+    <input type = "text" id = "spinMin" value = "0.001" size = "1" />
     -
-    <input type = "text" id = "spinMax" value = ".005" size = "1" /> 
+    <input type = "text" id = "spinMax" value = "0.005" size = "1" /> 
     <br></br>
 
     Size:
-    <input type = "text" id = "sizeMin" value = ".5" size = "1" />
+    <input type = "text" id = "sizeMin" value = "0.5" size = "1" />
     -
     <input type = "text" id = "sizeMax" value = "2" size = "1" /> 
     <br></br>
@@ -50,8 +74,15 @@
     <input type = "text" id = "scaleMax" value = "4" size = "1" /> 
     <br></br>
 
-    Delay
+    Delay:
     <input type = "text" id = "delay" value = "1" size = "1" />
+    <br></br>
+
+    Dimension:
+    <input type = "text" id = "width" size = "1"/>
+    x
+    <input type = "text" id = "height" size = "1"/>
+    <br></br>
   </div>
   <script src = "burst.js"></script>
 </body>
