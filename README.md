@@ -1,26 +1,37 @@
 # burst
-Random floaty shapes maker
+Random floaty shapes maker / 2D particle system
 
 You can try it out yourself or go [here](http://codepen.io/abbott/full/OMOrYE/)
 
 Press start to start the animation, stop to stop it
 
 ## Options
-**Lines**: shapes are lines instead of the floating shapes. This doesn't clear the canvas each time so you can see every iteration.
+**Preset**: Choice of default, floaty snow, and rain. These are just customized settings to stimulate different scenarios.
 
-**Mouse Mode**: click to make shapes instead. Modify the spread option to change how far away the shapes start from the mouse.
+**Draw Path**: Shapes are lines instead of the floating shapes. This doesn't clear the canvas each time so you can see every iteration.
 
-**Number of Shapes**: amount of shapes generated per cycle/ click.
+**Mouse Mode**: Click to make shapes instead. Modify the spread option to change how far away the shapes start from the mouse.
 
-**Spread**: maximum distance from orginal position
+**Shape Mode**: Pill - normal shape, Words - displays words instead from input
 
-**Speed**: how fast the shapes move up
+**Number of Shapes**: Amount of shapes generated per cycle/ click.
 
-**Spin**: how much the shapes turn
+**Spread**: Maximum distance from original position
 
-**Size**: length of the shapes
+**Speed**: How fast the shapes move up
 
-**Scale**: size of shapes
+**Spin**: How fast the shapes turn
 
-**Delay**: time between adding new shapes
+**Size**: Length of the shapes
 
+**Scale**: Size of shapes
+
+**Opacity**: Level of opacity from 0 to 1
+
+**Delay**: Time between adding new shapes
+
+**Dimension**: Dimension for the canvas
+
+**Background Color**: Background color of canvas
+
+**Colors**: Set of colors the shapes cycle through
