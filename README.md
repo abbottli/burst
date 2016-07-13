@@ -12,6 +12,8 @@ Press start to start the animation, stop to stop it
 
 **Mouse Mode**: Click to make shapes instead. Modify the spread option to change how far away the shapes start from the mouse.
 
+**Bounce**: Shapes bounce off edge of screen instead of continuing past it.
+
 **Shape Mode**: Pill - normal shape, Words - displays words instead from input
 
 **Number of Shapes**: Amount of shapes generated per cycle/ click.
